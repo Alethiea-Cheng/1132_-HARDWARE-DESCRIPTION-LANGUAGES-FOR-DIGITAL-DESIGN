@@ -1,0 +1,93 @@
+Magic 271485
+Revision Verdi_V-2023.12
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 23 2194 1182 290 599
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/aletheia/0-HDL/lab5/P78111527/waveform/sobel.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 2158289.376029 2162501.855458
+cursor 2159002.85862270277
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 0
+; marker line index
+markerPos 22
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByValue
+
+
+addGroup "G1"
+activeDirFile "" "/home/aletheia/0-HDL/lab5/P78111527/waveform/sobel.fsdb"
+addSignal -h 15 /sobel_tb/u_sobel/clk
+addSignal -h 15 -holdScope rst
+addSignal -h 15 -UNSIGNED -HEX -holdScope cstate[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope nstate[1:0]
+addSignal -h 15 -holdScope busy
+addSignal -h 15 -UNSIGNED -UDEC -holdScope addr[13:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope row[6:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope col[6:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope pixel_in[7:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope pbuf_cnt[1:0]
+addSignal -expanded -h 15 -UNSIGNED -UDEC -holdScope pbuf[0:3]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope pbuf[0][0:127]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope pbuf[1][0:127]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope pbuf[2][0:127]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope pbuf[3][0:127]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope block[0:8]
+addSignal -h 15 -holdScope valid
+addSignal -h 15 -UNSIGNED -UDEC -holdScope pixel_out[7:0]
+addSignal -h 15 -UNSIGNED -UDEC /sobel_tb/golden[7:0]
+addSignal -h 15 -2COMP -UDEC /sobel_tb/u_sobel/sumx[10:0]
+addSignal -h 15 -2COMP -UDEC -holdScope sumy[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope mul[23:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope sqrt_result[23:0]
+addGroup "G2"
+addGroup "G3"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+activeDirFile "" "/home/aletheia/0-HDL/lab5/P78111527/waveform/sobel.fsdb"
+
+GETSIGNALFORM_SCOPE_HIERARCHY_BEGIN
+getSignalForm close
+
+"/sobel_tb"
+"/sobel_tb/u_sobel"
+
+SCOPE_LIST_BEGIN
+"/sobel_tb"
+"/sobel_tb/u_sobel"
+SCOPE_LIST_END
+
+GETSIGNALFORM_SCOPE_HIERARCHY_END
+
+
