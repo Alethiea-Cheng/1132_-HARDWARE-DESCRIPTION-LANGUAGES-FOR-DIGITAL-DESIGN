@@ -1,0 +1,113 @@
+// verilog
+module random_pattern;
+
+    integer i;
+    reg [7:0] random_value;
+
+    initial begin
+        for (i = 0; i < 18; i = i + 1) begin
+            random_value = $random % 256;  // 產生 0 ~ 255 的 8-bit亂數
+            $display("%02h   // data%0d", random_value, i+1);
+        end
+    end
+
+endmodule
+
+// C general
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define NUM_DATA  18       // 要產生幾筆資料
+#define BIT_WIDTH 8        // 單筆資料幾bit（8 or 16 or 32）
+
+int main() {
+    FILE *fp;
+    unsigned int value;
+    int max_value;
+    int i;
+
+    // 設定亂數種子，讓每次產生不同
+    srand(time(NULL));
+
+    // 設定最大值（根據BIT_WIDTH）
+    if (BIT_WIDTH == 8)
+        max_value = 0xFF;
+    else if (BIT_WIDTH == 16)
+        max_value = 0xFFFF;
+    else if (BIT_WIDTH == 32)
+        max_value = 0xFFFFFFFF;
+    else {
+        printf("Unsupported BIT_WIDTH!\n");
+        return 1;
+    }
+
+    // 開啟寫檔
+    fp = fopen("golden.pat", "w");
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    // 產生NUM_DATA筆資料
+    for (i = 0; i < NUM_DATA; i++) {
+        value = rand() & max_value; // 取bit範圍內的亂數
+        if (BIT_WIDTH <= 8)
+            fprintf(fp, "%02X   // data%d\n", value, i + 1);
+        else if (BIT_WIDTH <= 16)
+            fprintf(fp, "%04X   // data%d\n", value, i + 1);
+        else
+            fprintf(fp, "%08X   // data%d\n", value, i + 1);
+    }
+
+    fclose(fp);
+
+    printf("Successfully generated golden.pat!\n");
+    return 0;
+}
+
+前面顯示0x 
+fprintf(fp, "0x%02X   // data%d\n", value, i + 1);
+
+
+
+// C
+#include <stdio.h>
+
+int main() {
+    unsigned int values[] = {0x09, 0x07, 0x24, 0x08, 0x0A, 0x1E, 0x01, 0x03, 0x01, 0x02, 0x00, 0x01, 0x0F, 0x0F, 0x01, 0x0F, 0x0F, 0x03};
+    const char *labels[] = {"CNT1", "CNT2", "CNT3", "CNT4", "CNT5", "CNT6", "HC1", "HC2", "HC3", "HC4", "HC5", "HC6", "M1", "M2", "M3", "M4", "M5", "M6"};
+    int n = sizeof(values) / sizeof(values[0]);
+
+    for (int i = 0; i < n; i++) {
+        printf("%02X   // %s\n", values[i], labels[i]);
+    }
+
+    return 0;
+}
+
+// python
+values = [0x09, 0x07, 0x24, 0x08, 0x0A, 0x1E, 0x01, 0x03, 0x01, 0x02, 0x00, 0x01, 0x0F, 0x0F, 0x01, 0x0F, 0x0F, 0x03]
+labels = ["CNT1", "CNT2", "CNT3", "CNT4", "CNT5", "CNT6", "HC1", "HC2", "HC3", "HC4", "HC5", "HC6", "M1", "M2", "M3", "M4", "M5", "M6"]
+
+for value, label in zip(values, labels):
+    print(f"{value:02X}   // {label}")
+
+// C++
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+int main() {
+    unsigned int values[] = {0x09, 0x07, 0x24, 0x08, 0x0A, 0x1E, 0x01, 0x03, 0x01, 0x02, 0x00, 0x01, 0x0F, 0x0F, 0x01, 0x0F, 0x0F, 0x03};
+    std::string labels[] = {"CNT1", "CNT2", "CNT3", "CNT4", "CNT5", "CNT6", "HC1", "HC2", "HC3", "HC4", "HC5", "HC6", "M1", "M2", "M3", "M4", "M5", "M6"};
+    int n = sizeof(values) / sizeof(values[0]);
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << std::uppercase << std::setfill('0') << std::setw(2) << std::hex << values[i]
+                  << "   // " << labels[i] << std::endl;
+    }
+
+    return 0;
+}
+
