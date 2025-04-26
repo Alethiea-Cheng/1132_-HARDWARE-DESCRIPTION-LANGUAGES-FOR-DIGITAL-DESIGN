@@ -1,0 +1,53 @@
+module pattern_generator;
+
+     Parameters 可以自己改
+    parameter int NUM_DATA = 18;     要產生幾筆
+    parameter int BIT_WIDTH = 8;     每筆幾bit (81632)
+    parameter string OUTPUT_FILE = golden.pat;  要寫到的檔案
+
+     Array 存label（可自訂或自動生成）
+    string labels[NUM_DATA];
+
+    int fd;
+    int i;
+    logic [BIT_WIDTH-10] random_value;
+
+    initial begin
+         初始化 labels
+        foreach (labels[i]) begin
+            labels[i] = $sformatf(data%0d, i+1);  預設用 data1, data2, ...
+        end
+
+         如果要改成指定label，也可以這樣改
+        
+        labels[0] = CNT1;
+        labels[1] = CNT2;
+        ...
+        
+
+         開檔案
+        fd = $fopen(OUTPUT_FILE, w);
+        if (fd == 0) begin
+            $display(Error opening file!);
+            $finish;
+        end
+
+         亂數產生
+        for (i = 0; i  NUM_DATA; i++) begin
+            random_value = $urandom_range(0, (1BIT_WIDTH)-1);  產生0~2^bit-1的亂數
+
+             寫到檔案
+            if (BIT_WIDTH = 8)
+                $fdisplay(fd, 0x%02h    %s, random_value, labels[i]);
+            else if (BIT_WIDTH = 16)
+                $fdisplay(fd, 0x%04h    %s, random_value, labels[i]);
+            else
+                $fdisplay(fd, 0x%08h    %s, random_value, labels[i]);
+        end
+
+        $fclose(fd);
+
+        $display(Pattern file %s generated successfully!, OUTPUT_FILE);
+    end
+
+endmodule
