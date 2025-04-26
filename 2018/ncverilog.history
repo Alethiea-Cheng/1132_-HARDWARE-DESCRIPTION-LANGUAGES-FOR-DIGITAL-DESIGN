@@ -1,0 +1,25 @@
+s1(26Jul2022:16:56:01):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s2(26Jul2022:16:56:50):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb1 
+s3(26Jul2022:16:57:32):  ncverilog tb.v huffman.v +notimingcheck 
+s4(26Jul2022:16:58:49):  ncverilog tb.v huffman.v +notimingcheck +define+tb1 
+s5(26Jul2022:16:58:54):  ncverilog tb.v huffman.v +notimingcheck +define+tb2 
+s6(26Jul2022:16:58:57):  ncverilog tb.v huffman.v +notimingcheck +define+tb3 
+s7(26Jul2022:16:59:26):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s8(26Jul2022:17:01:54):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s9(26Jul2022:17:03:55):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s10(26Jul2022:17:06:44):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s11(26Jul2022:17:06:54):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb1 
+s12(26Jul2022:17:07:09):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb2 
+s13(26Jul2022:17:10:15):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb1 
+s14(26Jul2022:17:10:21):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb2 
+s15(26Jul2022:17:10:25):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s16(26Jul2022:17:14:28):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s17(26Jul2022:17:15:41):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb1 
+s18(26Jul2022:17:15:46):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb2 
+s19(26Jul2022:17:16:01):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s20(26Jul2022:17:17:59):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s21(26Jul2022:17:20:08):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s22(26Jul2022:17:20:36):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 
+s23(26Jul2022:17:21:20):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb1 
+s24(26Jul2022:17:21:25):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb2 
+s25(26Jul2022:17:21:30):  ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3 

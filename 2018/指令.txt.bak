@@ -1,0 +1,2 @@
+ncverilog testfixture.v LCD_CTRL.v +notimingcheck
+ncverilog testfixture.v LCD_CTRL_syn.v tsmc13_neg.v +define+tb3

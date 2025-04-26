@@ -1,0 +1,3 @@
+ncverilog testfixture.v huffman.v +notimingcheck
+ncverilog tb.v huffman_syn.v tsmc13_neg.v +define+SDF+tb3
+VCS -R -full64 -debug_access+all tb.v  huffman_syn.v tsmc13_neg.v +define+FSDB+tb3
